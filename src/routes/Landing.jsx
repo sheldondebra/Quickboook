@@ -49,11 +49,12 @@ const Landing = () => {
             <div>
               <Lock className="h-6 w-6 text-indigo-600 mb-3" />
               <h3 className="text-lg font-semibold text-gray-900">
-               Secure & Private
+                Secure & Private
               </h3>
             </div>
             <p className="text-gray-600">
-              Your notes are protected with enterprise-grade security and encryption.
+              Your notes are protected with enterprise-grade security and
+              encryption.
             </p>
           </div>
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
@@ -64,7 +65,8 @@ const Landing = () => {
               </h3>
             </div>
             <p className="text-gray-600">
-              Clean and intuitive interface that lets you focus on what matters most.
+              Clean and intuitive interface that lets you focus on what matters
+              most.
             </p>
           </div>
         </div>
