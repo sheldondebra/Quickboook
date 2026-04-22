@@ -1,7 +1,16 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Landing from "./routes/Landing";
+import Signup from "./routes/Signup";
+import Login from "./routes/Login";
+
 function App() {
   return (
     <>
-      <h1 className="bg-purple-100">Hello world!</h1>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/signip" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </>
   );
 }
