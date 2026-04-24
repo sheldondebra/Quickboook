@@ -17,12 +17,13 @@ const NoteForm = () => {
 
 
   const handleSubmit = async (e) =>{
-    e.preventdefault();
+    e.preventDefault();
     setError('');
-      setSucess('')
+      setSucess(false)
 
       if(!title.trim()){
-        return error('This is required')
+        setError('This is required');
+        return;
       }
 
       try{
@@ -31,6 +32,7 @@ const NoteForm = () => {
         await addDoc(collection(db, 'notes'),{
           title:title.trim(),
           content:content.trim(),
+          userId: currentUser.uid,
           createdAt: serverTimestamp()
         })
 
@@ -42,7 +44,7 @@ const NoteForm = () => {
 
 
       } catch(err){
-        setError('Faild to create Note' + err.message)
+        setError('Failed to create Note: ' + err.message)
       }finally{
         setLoading(false)
       }
@@ -97,7 +99,7 @@ const NoteForm = () => {
           </label>
           <textarea
             id="content"
-            typeof="text"
+            type="text"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 rounded-lg"
@@ -105,7 +107,7 @@ const NoteForm = () => {
             rows={4}
           />
         </div>
-        <button type="submite" disabled={loading} className='w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 transition-colors focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed'>
+        <button type="submit" disabled={loading} className='w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 transition-colors focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed'>
           {loading ? "Creating..." : "Create Note"}
         </button>
       </form>
