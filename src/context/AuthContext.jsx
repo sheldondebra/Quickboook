@@ -38,12 +38,12 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function LogOut() {
+  async function Logout() {
     setError("");
     try {
       return await signOut(auth);
     } catch (err) {
-      setError(err.message);
+      setError(err.code);
       throw err;
     }
   }
@@ -58,7 +58,7 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser,
-    LogOut,
+    Logout,
     signUp,
     signIn,
     error,

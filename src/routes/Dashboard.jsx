@@ -1,9 +1,12 @@
 import React from 'react'
+import NoteForm from '../components/NoteForm'
+import NoteCard from '../components/NoteCard'
 
 const Dashboard = () => {
   return (
     <div>
-      <h1>DashBorad</h1>
+      <NoteForm/>
+      <NoteCard/>
     </div>
   )
 }
